@@ -1,0 +1,12 @@
+server:
+  port: 8082
+  context-path: /boot-01
+#spring:
+#  thymeleaf:
+#    prefix: /templates/
+#    suffix: .html
+#    mode: HTML5
+param:
+  name: jiyunfei
+  age: 31
+  content: "my info ${param.name} , age : ${param.age} , msg from application.yml :) "

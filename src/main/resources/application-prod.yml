@@ -1,0 +1,6 @@
+server:
+  port: 8080
+  context-path: /boot-01
+param:
+  name: jm
+  age: 30
