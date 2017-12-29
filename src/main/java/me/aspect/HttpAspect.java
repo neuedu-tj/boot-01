@@ -19,7 +19,7 @@ public class HttpAspect {
 
     private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
     
-    @Pointcut("execution(public * me.controller.EmpController.*(..))")
+    @Pointcut("execution(public * me.controller.*Controller.*(..))")
     public void empsPointCut(){
 
     }

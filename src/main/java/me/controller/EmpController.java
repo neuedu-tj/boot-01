@@ -2,7 +2,9 @@ package me.controller;
 
 import me.biz.EmpService;
 import me.domain.Emp;
+import me.exception.util.ResultUtil;
 import me.repository.EmpRepository;
+import me.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
@@ -27,12 +29,11 @@ public class EmpController {
     }
     
     @PostMapping(value = "/emps" )
-    public Emp saveEmp(@Valid Emp emp , BindingResult bindingResult) {
+    public Result<Emp> saveEmp(@Valid Emp emp , BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
-            System.out.println("error.filed : " + bindingResult.getFieldError().getDefaultMessage());
-            return null;
+            return ResultUtil.error(1,bindingResult.getFieldError().getDefaultMessage());
         }
-        return empRepository.save(emp);
+        return ResultUtil.success(empRepository.save(emp));
     }
 
     @GetMapping(value = "/emps/{id}")
@@ -61,7 +62,7 @@ public class EmpController {
 
     @PostMapping(value = "/emps" , consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Emp> saveEmps(@RequestBody List<Emp> emps) {
-        return empService.saveEmp(emps);
+        return empService.saveEmps(emps);
     }
 
 }

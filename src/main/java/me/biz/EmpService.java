@@ -15,7 +15,7 @@ public class EmpService {
     private EmpRepository empRepository;
 
     @Transactional
-    public List<Emp> saveEmp(List<Emp> emps) {
+    public List<Emp> saveEmps(List<Emp> emps) {
         return empRepository.save(emps);
     }
 

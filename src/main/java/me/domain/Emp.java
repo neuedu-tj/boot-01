@@ -12,7 +12,7 @@ import javax.validation.constraints.Min;
 public class Emp {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue
     private Integer id;
 
     private String ename;
